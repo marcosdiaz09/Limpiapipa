@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#FFF9F4">
+<title>Taller Limpiapipas · Beca 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  /* Calcado del original (inlead): naranja #FF5900 como color de tema, Poppins en títulos,
+     Inter en texto, fondo crema con flores de chenille. Verde solo para "éxito". */
+  --acc:#FF5900; --acc-osc:#D94A00; --acc-cl:#FFF0E6; --acc-bd:#FFC9A8;
+  --ok:#16A34A; --ok-osc:#15803D; --ok-cl:#ECFDF5; --ok-bd:#A7F3D0;
+  --mal:#DC2626; --mal-cl:#FEE2E2;
+  --info:#1C72F1; --info-cl:#E3EEFF; --info-bd:#C7DCFE;
+  --ambar:#B45309; --ambar-cl:#FFF6E6; --ambar-bd:#FFE4B8;
+  --rosa:#F2A2B4; --rosa-osc:#D97A90; --salvia:#7FA37C; --salvia-osc:#5E8560; --crema:#FFF9F4;
+  --tinta:#1F1A17; --gris:#6B6560; --tenue:#A39D97; --linea:#EFE6DE; --suave:#FBF4EE; --blanco:#fff;
+  --r:18px; --sombra:0 1px 2px rgba(31,26,23,.05),0 10px 30px rgba(120,70,30,.10);
+  --tit:"Poppins",Inter,system-ui,sans-serif;
+}
+html,body{background:var(--crema);color:var(--tinta)}
+body{font:400 17px/1.5 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+#app{max-width:28rem;margin:0 auto;min-height:100dvh;display:flex;flex-direction:column;position:relative}
+
+/* ---------- barra superior ---------- */
+.top{position:sticky;top:0;z-index:40;background:rgba(255,249,244,.92);backdrop-filter:blur(8px);padding:10px 16px 0}
+.top-row{display:flex;align-items:center;justify-content:center;position:relative;min-height:36px}
+.volver{position:absolute;left:0;top:0;width:36px;height:36px;border:0;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:50%;color:var(--tinta)}
+.volver:active{background:var(--linea)}
+.volver svg{width:22px;height:22px}
+.marca{display:flex;align-items:center;gap:8px;font-family:var(--tit);font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--tinta)}
+.marca svg{width:26px;height:26px}
+.marca b{color:var(--acc)}
+.paso{position:absolute;right:0;top:8px;font-size:12px;font-weight:700;color:var(--tenue)}
+.barra{height:6px;background:var(--linea);border-radius:99px;margin:10px 0 0;overflow:hidden;position:relative}
+.barra>i{display:block;height:100%;background:linear-gradient(90deg,var(--acc-osc),var(--acc));border-radius:99px;transition:width .5s cubic-bezier(.3,.8,.3,1);position:relative;overflow:hidden}
+.barra>i:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);transform:translateX(-100%);animation:brillo 2.2s ease-in-out infinite}
+@keyframes brillo{to{transform:translateX(100%)}}
+.top.oculta{display:none}
+
+/* ---------- cuerpo y transiciones ---------- */
+main{flex:1;padding:18px 16px 44px;position:relative}
+.pant{animation:entra .38s cubic-bezier(.2,.8,.2,1) both}
+.pant.sale{animation:sale .18s ease-in both}
+@keyframes entra{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
+@keyframes sale{to{opacity:0;transform:translateX(-22px)}}
+@keyframes cae{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+@keyframes flota{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-6px) rotate(3deg)}}
+.sec{animation:cae .45s ease both}
+.sec.d1{animation-delay:.08s}.sec.d2{animation-delay:.16s}.sec.d3{animation-delay:.24s}.sec.d4{animation-delay:.32s}.sec.d5{animation-delay:.4s}
+
+h1,h2,h3{font-family:var(--tit);line-height:1.2;letter-spacing:-.02em;color:var(--tinta)}
+.h1{font-size:28px;font-weight:900}
+.h2{font-size:23px;font-weight:800;margin-bottom:8px}
+.h3{font-size:19px;font-weight:800;margin-bottom:6px}
+.q{font-size:22px;font-weight:800;margin-top:8px}
+.p{font-size:17px;color:var(--gris);line-height:1.55}
+.p.chico{font-size:15px}
+.c{text-align:center}
+.sp{height:16px}.sp2{height:28px}
+em.a{font-style:normal;color:var(--acc);font-weight:800}
+em.v{font-style:normal;color:var(--ok);font-weight:800}
+mark{background:var(--acc);color:#fff;padding:1px 8px;border-radius:6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+mark.v{background:var(--ok)}
+.sub{font-size:16px;color:var(--gris);margin-top:10px;line-height:1.55}
+.pill{display:inline-flex;align-items:center;gap:7px;background:var(--tinta);color:#fff;font-weight:800;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border-radius:99px}
+.pill.acc{background:var(--acc)}
+.pill.ok{background:var(--ok)}
+.pill i{width:8px;height:8px;border-radius:50%;background:#fff;animation:parpadea 1.4s ease-in-out infinite}
+@keyframes parpadea{50%{opacity:.25}}
+
+/* ---------- botones ---------- */
+.btn{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:60px;border:0;border-radius:var(--r);padding:16px 20px;cursor:pointer;font:800 18px/1.2 var(--tit);color:#fff;background:linear-gradient(180deg,#FF7A2E,var(--acc) 55%,var(--acc-osc));box-shadow:0 10px 26px rgba(255,89,0,.32),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .1s,filter .15s;text-align:center}
+.btn:after{content:"";position:absolute;top:0;left:-70%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:shine 2.8s ease-in-out infinite}
+@keyframes shine{0%{left:-70%}45%{left:130%}100%{left:130%}}
+.btn:active{transform:scale(.97);filter:brightness(.95)}
+.btn[disabled]{opacity:.45;box-shadow:none;cursor:default;animation:none}
+.btn[disabled]:after{display:none}
+.btn.pulsa{animation:pulsa 1.9s ease-in-out infinite}
+@keyframes pulsa{0%,100%{box-shadow:0 10px 26px rgba(255,89,0,.32),0 0 0 0 rgba(255,89,0,.5)}60%{box-shadow:0 10px 26px rgba(255,89,0,.32),0 0 0 16px rgba(255,89,0,0)}}
+.btn.ok{background:linear-gradient(180deg,#2BC265,var(--ok) 55%,var(--ok-osc));box-shadow:0 10px 26px rgba(22,163,74,.3)}
+.btn.ok.pulsa{animation-name:pulsaOk}
+@keyframes pulsaOk{0%,100%{box-shadow:0 10px 26px rgba(22,163,74,.3),0 0 0 0 rgba(22,163,74,.5)}60%{box-shadow:0 10px 26px rgba(22,163,74,.3),0 0 0 16px rgba(22,163,74,0)}}
+.btn.grande{min-height:66px;font-size:19px}
+.btn .fl{display:inline-block;transition:transform .2s}
+.btn:active .fl{transform:translateX(4px)}
+.cta-wrap{margin-top:24px}
+.nota-cta{font-size:13px;color:var(--tenue);text-align:center;margin-top:10px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.botones{display:flex;flex-direction:column;gap:12px;margin-top:22px}
+.botones .btn.resp{background:var(--blanco);color:var(--tinta);border:2px solid var(--linea);box-shadow:var(--sombra);font-family:Inter,sans-serif;font-weight:700;font-size:16.5px;text-align:left;justify-content:flex-start;animation:cae .4s ease both;animation-delay:calc(var(--i)*70ms)}
+.botones .btn.resp:after{display:none}
+.botones .btn.resp:active{border-color:var(--acc);background:var(--acc-cl)}
+
+/* ---------- opciones ---------- */
+.ops{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.op{position:relative;display:flex;align-items:center;gap:14px;width:100%;text-align:left;cursor:pointer;background:var(--blanco);border:2px solid var(--linea);border-radius:var(--r);padding:15px 16px;font:inherit;color:inherit;transition:border-color .18s,background .18s,transform .1s,box-shadow .18s;animation:cae .4s ease both;animation-delay:calc(var(--i)*70ms);box-shadow:var(--sombra)}
+.op:active{transform:scale(.98)}
+.op.on{border-color:var(--acc);background:var(--acc-cl);box-shadow:0 0 0 4px rgba(255,89,0,.12),var(--sombra)}
+.op .ic{font-size:26px;line-height:1;flex:0 0 auto;width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:var(--suave);border-radius:12px}
+.op.on .ic{background:#fff}
+.op .tx{flex:1;min-width:0}
+.op .tt{display:block;font-weight:700;font-size:16.5px;line-height:1.3}
+.op .st{display:block;font-size:14px;color:var(--gris);margin-top:3px;line-height:1.4}
+.op .bx{flex:0 0 24px;width:24px;height:24px;border:2px solid var(--linea);border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--blanco);transition:all .18s}
+.op.multi .bx{border-radius:7px}
+.op.on .bx{background:var(--acc);border-color:var(--acc);animation:pop .3s ease}
+.op .bx svg{width:14px;height:14px;stroke:#fff;stroke-width:3.2;fill:none;opacity:0}
+.op.on .bx svg{opacity:1}
+.op .fl{flex:0 0 auto;color:var(--acc);font-size:22px;font-weight:800;opacity:.6}
+
+/* ---------- tarjetas ---------- */
+.card{background:var(--blanco);border:1px solid var(--linea);border-radius:20px;padding:18px;margin-top:16px;box-shadow:var(--sombra)}
+.aviso{border-radius:18px;padding:16px 18px;margin-top:16px;display:flex;gap:12px;align-items:flex-start}
+.aviso.verde{background:var(--ok-cl);border:1px solid var(--ok-bd)}
+.aviso.ambar{background:var(--ambar-cl);border:1px solid var(--ambar-bd)}
+.aviso.azul{background:var(--info-cl);border:1px solid var(--info-bd)}
+.aviso.naranja{background:var(--acc-cl);border:1px solid var(--acc-bd)}
+.aviso.blanco{background:var(--blanco);border:1px solid var(--linea);box-shadow:var(--sombra)}
+.aviso .em{font-size:24px;line-height:1;flex:0 0 auto}
+.aviso b{display:block;font-size:16px;margin-bottom:4px;color:var(--tinta)}
+.aviso p{font-size:15px;color:var(--gris);line-height:1.5}
+.aviso p strong{color:var(--tinta)}
+.hueco{border:2px dashed var(--acc-bd);border-radius:var(--r);padding:16px;text-align:center;color:var(--tenue);font-size:13px;line-height:1.45;background:var(--blanco);margin-top:16px}
+.hueco b{display:block;color:var(--gris);margin-bottom:4px}
+.hueco a{color:var(--acc)}
+img.full{display:block;width:100%;border-radius:var(--r);margin-top:16px}
+
+/* ---------- flores decorativas (SVG, propias) ---------- */
+.deco{position:absolute;pointer-events:none;z-index:0;opacity:.95}
+.deco svg{display:block}
+.deco.tl{top:-6px;left:-18px;width:120px;transform:rotate(-15deg)}
+.deco.br{right:-14px;bottom:-10px;width:150px;transform:rotate(12deg)}
+.deco.flota{animation:flota 6s ease-in-out infinite}
+.relativo{position:relative}
+
+/* ---------- pantalla 1 (calcada del original: fondo con flores, texto en mayúsculas, botón redondo verde 3D) ---------- */
+body.fondo-inicio #app{background:#fff}
+body.fondo-inicio main{padding:0}
+.inicio{min-height:100dvh;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:16vh 16px 40px;text-align:center}
+.inicio .fondo{position:absolute;inset:0;background:var(--crema) center/cover no-repeat;opacity:.75;z-index:0}
+.inicio>*{position:relative;z-index:1}
+.inicio .lema{font-family:var(--tit);font-weight:800;font-size:22px;line-height:1.25;color:var(--tinta);text-transform:uppercase;max-width:84%;margin:0 auto;animation:cae .5s ease both}
+.inicio .lema b{color:var(--acc)}
+/* botón INICIAR: pastilla ancha 3D (verde como el original, otra forma) */
+.inicio .cartel{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--acc-bd);color:var(--tinta);font-weight:800;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border-radius:99px;box-shadow:0 4px 14px rgba(217,74,0,.12);margin-bottom:16px;animation:cae .5s ease both}
+.inicio .cartel i{width:8px;height:8px;border-radius:50%;background:var(--ok);animation:parpadea 1.4s ease-in-out infinite}
+.inicio .flecha{width:34px;height:34px;margin:18px auto 6px;color:var(--acc);animation:rebota 1.3s ease-in-out infinite}
+@keyframes rebota{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+.iniciar-3d{position:relative;overflow:hidden;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:12px;width:100%;max-width:330px;min-height:78px;margin:0 auto;padding:0 26px;border:0;border-radius:22px;
+  background:radial-gradient(ellipse at 30% 10%,rgba(255,255,255,.75) 0%,rgba(255,255,255,.2) 28%,transparent 55%),linear-gradient(180deg,#8CF02A,#3FBA00 55%,#1E7A00);
+  box-shadow:0 7px 0 #145200,0 14px 26px rgba(20,82,0,.35),inset 0 0 0 3px rgba(255,255,255,.18);
+  color:#fff;font-family:var(--tit);font-size:24px;font-weight:900;letter-spacing:.02em;line-height:1;text-align:center;text-shadow:0 2px 3px rgba(0,0,0,.3);cursor:pointer;transition:transform .12s ease,box-shadow .12s ease;animation:pop .6s cubic-bezier(.2,.9,.3,1.2) .15s both,latido 2.2s ease-in-out 1s infinite}
+.iniciar-3d:after{content:"";position:absolute;top:0;left:-70%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg);animation:shine 2.6s ease-in-out infinite}
+.iniciar-3d:active{transform:translateY(5px);box-shadow:0 2px 0 #145200,0 6px 14px rgba(20,82,0,.35),inset 0 0 0 3px rgba(255,255,255,.18)}
+.iniciar-3d .fl{display:inline-flex;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.22);align-items:center;justify-content:center;font-size:22px;flex:0 0 auto}
+@keyframes latido{0%,100%{box-shadow:0 7px 0 #145200,0 14px 26px rgba(20,82,0,.35),inset 0 0 0 3px rgba(255,255,255,.18),0 0 0 0 rgba(63,186,0,.45)}60%{box-shadow:0 7px 0 #145200,0 14px 26px rgba(20,82,0,.35),inset 0 0 0 3px rgba(255,255,255,.18),0 0 0 18px rgba(63,186,0,0)}}
+.inicio .micro{margin-top:14px;font-size:13.5px;color:var(--gris);display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.inicio .micro b{color:var(--tinta)}
+.inicio .gente{margin-top:12px;background:rgba(255,255,255,.75);border-radius:99px;padding:6px 14px 6px 8px;display:inline-flex}
+.gente{display:flex;align-items:center;gap:10px;margin-top:16px;justify-content:center}
+.gente .avs{display:flex}
+.gente .avs i{width:32px;height:32px;border-radius:50%;border:2px solid var(--crema);margin-left:-8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;font-style:normal;color:#fff}
+.gente .avs i:first-child{margin-left:0}
+.gente span{font-size:13.5px;color:var(--gris)}
+.gente span b{color:var(--tinta)}
+.estrellas{color:#F59E0B;font-size:13px;letter-spacing:1px}
+.legal{font-size:12px;color:var(--tenue);text-align:center;margin-top:26px;line-height:1.5}
+
+/* ---------- loading ---------- */
+.cargando{text-align:center;padding-top:10px}
+.anillo{width:170px;height:170px;margin:12px auto 6px;position:relative}
+.anillo svg{width:100%;height:100%;transform:rotate(-90deg)}
+.anillo circle{fill:none;stroke-width:14;stroke-linecap:round}
+.anillo .fondo{stroke:var(--linea)}
+.anillo .prog{stroke:var(--acc);stroke-dasharray:440;stroke-dashoffset:440;transition:stroke-dashoffset .25s linear}
+.anillo .prog.ok{stroke:var(--ok)}
+.anillo .num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--tit);font-weight:900;font-size:40px;letter-spacing:-.03em}
+.anillo .num small{font-size:18px;margin-left:2px;color:var(--gris)}
+.pasos{margin-top:18px;text-align:left}
+.pasos .ln{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:14px;background:var(--blanco);border:1px solid var(--linea);margin-top:8px;font-size:15px;color:var(--gris);opacity:.35;transform:translateX(-6px);transition:all .4s ease}
+.pasos .ln.act{opacity:1;transform:none;color:var(--tinta);font-weight:600}
+.pasos .ln .dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--linea);flex:0 0 22px;display:flex;align-items:center;justify-content:center}
+.pasos .ln.act .dot{border-color:var(--acc);border-top-color:transparent;animation:gira .8s linear infinite}
+.pasos .ln.ok .dot{border:0;background:var(--ok);animation:none}
+.pasos .ln.ok .dot:after{content:"✓";color:#fff;font-size:13px;font-weight:900}
+@keyframes gira{to{transform:rotate(360deg)}}
+.tarjetas{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:20px}
+.tarj{border-radius:18px;padding:16px 8px 12px;text-align:center;opacity:0;transform:translateY(16px) scale(.9)}
+.tarj.vis{animation:tarjeta .55s cubic-bezier(.2,.9,.3,1.2) both}
+@keyframes tarjeta{to{opacity:1;transform:none}}
+.tarj .ico{width:58px;height:58px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:inset 0 -6px 12px rgba(0,0,0,.08),0 8px 16px rgba(0,0,0,.08)}
+.tarj b{display:block;font-family:var(--tit);font-size:13px;line-height:1.25;font-weight:700}
+.tarj.rosa{background:#FFE4E6}.tarj.rosa .ico{background:linear-gradient(145deg,#4ADE80,#16A34A);color:#fff}
+.tarj.amarilla{background:#FEF3C7}.tarj.amarilla .ico{background:linear-gradient(145deg,#FCD34D,#D97706);color:#fff}
+.tarj.verde{background:#DCFCE7}.tarj.verde .ico{background:linear-gradient(145deg,#86EFAC,#15803D);color:#fff}
+.cupos{margin-top:22px;font-family:var(--tit);font-size:20px;font-weight:800;line-height:1.25;animation:cae .5s ease both}
+.cupos b{color:var(--acc);font-size:30px}
+
+/* ---------- resultado ---------- */
+.resultado .wow{font-family:var(--tit);font-size:34px;font-weight:900;animation:pop .5s ease both}
+.compat{position:relative;width:200px;height:200px;margin:14px auto 4px}
+.compat svg{width:100%;height:100%;transform:rotate(-90deg)}
+.compat circle{fill:none;stroke-width:16;stroke-linecap:round}
+.compat .fondo{stroke:var(--linea)}
+.compat .prog{stroke:url(#gradOk);stroke-dasharray:502;stroke-dashoffset:502;transition:stroke-dashoffset 1.8s cubic-bezier(.2,.8,.2,1)}
+.compat .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--tit);font-weight:900;font-size:48px;letter-spacing:-.04em;color:var(--ok-osc);line-height:1}
+.compat .num small{font-size:12px;font-weight:700;color:var(--gris);letter-spacing:.08em;text-transform:uppercase;margin-top:4px}
+.minimo{display:inline-block;background:var(--mal-cl);color:var(--mal);font-weight:800;padding:3px 9px;border-radius:8px}
+.metrica{margin-top:14px;text-align:left}
+.metrica .lab{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;font-size:14.5px;color:var(--tinta);font-weight:700;line-height:1.3}
+.metrica .lab span{font-size:14px;font-weight:800;flex:0 0 auto}
+.metrica .pista{height:12px;background:var(--linea);border-radius:99px;overflow:hidden;margin-top:7px}
+.metrica .pista i{display:block;height:100%;width:0;border-radius:99px;transition:width 1.2s cubic-bezier(.2,.7,.2,1)}
+.metrica.verde .pista i{background:linear-gradient(90deg,#86EFAC,var(--ok))}
+.metrica.verde .lab span{color:var(--ok-osc)}
+.metrica.naranja .pista i{background:linear-gradient(90deg,#FFB380,var(--acc))}
+.metrica.naranja .lab span{color:var(--acc-osc)}
+.perfil{margin-top:18px;background:var(--tinta);color:#fff;border-radius:20px;padding:18px;text-align:left;display:flex;gap:14px;align-items:center}
+.perfil .em{font-size:34px}
+.perfil small{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;font-weight:700}
+.perfil b{font-family:var(--tit);font-size:19px;line-height:1.2}
+#confeti{position:fixed;inset:0;pointer-events:none;z-index:50}
+
+/* ---------- profe / testimonios ---------- */
+.profe{display:flex;gap:14px;align-items:center;background:var(--blanco);border:1px solid var(--linea);border-radius:20px;padding:16px;margin-top:16px;box-shadow:var(--sombra)}
+.profe .foto{width:76px;height:76px;border-radius:50%;flex:0 0 76px;background:var(--acc-cl) center 12%/cover no-repeat;display:flex;align-items:center;justify-content:center;font-family:var(--tit);font-weight:800;font-size:26px;color:var(--acc);border:3px solid #fff;box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.profe b{font-family:var(--tit);font-size:18px}
+.profe small{display:block;color:var(--gris);font-size:13.5px;margin-top:2px}
+.testi{display:flex;gap:12px;align-items:flex-start;background:var(--blanco);border:1px solid var(--linea);border-radius:18px;padding:16px;margin-top:14px;box-shadow:var(--sombra)}
+.testi .foto{width:48px;height:48px;border-radius:50%;flex:0 0 48px;background:var(--acc-cl) center/cover;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--acc)}
+.testi .q{font-size:15px;color:var(--gris);line-height:1.55;font-family:Inter,sans-serif;font-weight:400;margin:0}
+.testi .n{font-weight:800;font-size:14px;color:var(--tinta);margin-top:6px}
+.testi .n span{font-weight:500;color:var(--tenue)}
+
+/* ---------- pantalla final: VSL + oferta ---------- */
+.vsl{margin-top:14px;border-radius:22px;overflow:hidden;background:#111;box-shadow:0 18px 40px rgba(0,0,0,.25);position:relative}
+.vsl .marco{position:relative;padding-top:177.78%}
+.vsl .marco>*{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vsl .falta{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#fff;background:radial-gradient(circle at 50% 40%,#3a2a22,#111 70%);text-align:center;padding:24px}
+.vsl .falta .play{width:84px;height:84px;border-radius:50%;background:var(--acc);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 12px rgba(255,89,0,.25);animation:pulsa 2s infinite}
+.vsl .falta .play svg{width:34px;height:34px;fill:#fff;margin-left:5px}
+.vsl .falta b{font-family:var(--tit);font-size:18px}
+.vsl .falta p{font-size:13px;opacity:.75;line-height:1.5}
+.oferta{margin-top:26px}
+.oferta.oculta{display:none}
+.modulos{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.mod{display:flex;gap:12px;align-items:flex-start;background:var(--blanco);border:1px solid var(--linea);border-radius:16px;padding:14px;box-shadow:var(--sombra)}
+.mod .n{flex:0 0 40px;width:40px;height:40px;border-radius:12px;background:var(--acc-cl);color:var(--acc);font-family:var(--tit);font-weight:900;display:flex;align-items:center;justify-content:center;font-size:15px}
+.mod b{display:block;font-size:15.5px;line-height:1.3}
+.mod small{display:block;color:var(--gris);font-size:13.5px;line-height:1.45;margin-top:3px}
+.bono{display:flex;gap:12px;align-items:flex-start;background:linear-gradient(180deg,#fff,#FFF7F2);border:1px solid var(--acc-bd);border-radius:16px;padding:14px;box-shadow:var(--sombra)}
+.bono .n{flex:0 0 auto;background:var(--acc);color:#fff;font-size:11px;font-weight:900;letter-spacing:.06em;padding:5px 8px;border-radius:8px;font-family:var(--tit)}
+.bono b{display:block;font-size:15.5px;line-height:1.3}
+.bono small{display:block;color:var(--gris);font-size:13.5px;line-height:1.45;margin-top:3px}
+.bono .val{flex:0 0 auto;text-align:right;font-size:12px;color:var(--tenue);line-height:1.3}
+.bono .val s{display:block}
+.bono .val b{color:var(--ok);font-size:12px}
+.beca{margin-top:22px;background:var(--tinta);color:#fff;border-radius:24px;padding:22px 20px;text-align:center;position:relative;overflow:hidden}
+.beca:before{content:"";position:absolute;inset:-40%;background:radial-gradient(circle at 30% 20%,rgba(255,89,0,.35),transparent 45%),radial-gradient(circle at 80% 90%,rgba(242,162,180,.3),transparent 40%)}
+.beca>*{position:relative}
+.beca .l1{font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;opacity:.75}
+.beca .l2{font-family:var(--tit);font-size:20px;font-weight:700;margin-top:6px}
+.beca .l2 s{opacity:.6}
+.beca .cubre{margin-top:12px;display:inline-block;background:var(--ok);color:#fff;font-weight:800;padding:8px 14px;border-radius:99px;font-size:14px}
+.beca .precio{font-family:var(--tit);font-size:52px;font-weight:900;letter-spacing:-.04em;line-height:1;margin-top:12px}
+.beca .precio small{font-size:16px;font-weight:700;letter-spacing:0;opacity:.8;margin-left:4px}
+.beca .l3{font-size:13.5px;opacity:.8;margin-top:8px}
+.sellos{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px}
+.sello{background:var(--blanco);border:1px solid var(--linea);border-radius:14px;padding:12px 8px;text-align:center;font-size:12px;color:var(--gris);line-height:1.3}
+.sello i{display:block;font-style:normal;font-size:22px;margin-bottom:4px}
+.sello b{display:block;color:var(--tinta);font-size:12.5px}
+.cuenta{margin-top:22px;background:var(--blanco);border:1px solid var(--linea);border-radius:20px;padding:18px;box-shadow:var(--sombra)}
+.cuenta .fila{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed var(--linea);font-size:15px}
+.cuenta .fila:last-child{border:0}
+.cuenta .fila b{font-family:var(--tit);font-size:18px}
+.cuenta .fila b.ok{color:var(--ok-osc)}
+.cuenta .fila b.acc{color:var(--acc)}
+.garantia{margin-top:22px;display:flex;gap:14px;align-items:center;background:var(--ok-cl);border:1px solid var(--ok-bd);border-radius:20px;padding:16px}
+.garantia .medalla{width:64px;height:64px;flex:0 0 64px}
+.garantia b{display:block;font-family:var(--tit);font-size:16px;margin-bottom:3px}
+.garantia p{font-size:14px;color:var(--gris);line-height:1.5}
+.faq{margin-top:22px}
+.faq details{background:var(--blanco);border:1px solid var(--linea);border-radius:14px;padding:0 16px;margin-top:8px}
+.faq summary{cursor:pointer;list-style:none;padding:14px 0;font-weight:700;font-size:15px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";font-size:22px;color:var(--acc);font-weight:800;transition:transform .2s}
+.faq details[open] summary:after{transform:rotate(45deg)}
+.faq p{font-size:14.5px;color:var(--gris);line-height:1.55;padding-bottom:14px}
+.lista-ok{list-style:none;margin-top:12px}
+.lista-ok li{position:relative;padding:7px 0 7px 32px;font-size:15.5px;line-height:1.45;color:var(--tinta)}
+.lista-ok li:before{content:"✓";position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--ok);color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center}
+.lista-x li:before{content:"✕";background:var(--mal)}
+
+/* ---------- landing final (TSL: el VSL resumido en página) ---------- */
+.ld h2.h2{margin-top:30px}
+.ld .lead{font-size:18px;color:var(--tinta);line-height:1.55;margin-top:10px}
+.ld .lead b{color:var(--acc)}
+.ld p.p{margin-top:12px}
+.tres{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:16px}
+.tres .m{background:var(--blanco);border:1px solid var(--linea);border-radius:18px;padding:16px 8px;text-align:center;box-shadow:var(--sombra)}
+.tres .m i{display:block;font-style:normal;font-size:30px;margin-bottom:6px}
+.tres .m b{display:block;font-family:var(--tit);font-size:15px}
+.tres .m small{display:block;color:var(--gris);font-size:12px;line-height:1.3;margin-top:3px}
+.caso{margin-top:16px;background:linear-gradient(180deg,#fff,#FFF4EC);border:1px solid var(--acc-bd);border-radius:20px;padding:18px;box-shadow:var(--sombra)}
+.caso .q{font-family:var(--tit);font-weight:800;font-size:16px;color:var(--acc-osc);margin-bottom:6px}
+.caso p{font-size:15px;color:var(--gris);line-height:1.55}
+.vale{display:flex;gap:14px;align-items:center;margin-top:16px}
+.vale .f{width:84px;height:84px;border-radius:22px;flex:0 0 84px;background:var(--acc-cl) center 12%/cover no-repeat;box-shadow:var(--sombra)}
+.vale b{font-family:var(--tit);font-size:18px;display:block}
+.vale small{color:var(--gris);font-size:14px;line-height:1.4}
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.dos>div{border-radius:18px;padding:16px 14px;font-size:14.5px;line-height:1.45}
+.dos .no{background:var(--mal-cl);color:#7F1D1D}
+.dos .si{background:var(--ok-cl);color:#14532D;border:1px solid var(--ok-bd)}
+.dos b{display:block;font-family:var(--tit);font-size:15px;margin-bottom:4px}
+.no-anim *{animation:none!important;transition:none!important}
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="top" id="top">
+    <div class="top-row">
+      <button class="volver" id="volver" aria-label="Volver"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div class="marca" id="marcatop"></div>
+      <div class="paso" id="paso"></div>
+    </div>
+    <div class="barra"><i id="barra"></i></div>
+  </div>
+  <main id="main"></main>
+</div>
+<canvas id="confeti"></canvas>
+
+<script>
+/* ============================================================================
+   CONFIG — todo lo editable vive acá. Los totales se calculan solos.
+   ============================================================================ */
+const CONFIG = {
+  /* A DÓNDE VA EL BOTÓN DE COMPRA. REGLA DURA: el checkout cobra exactamente CONFIG.precio, una vez. */
+  checkout: "https://arteenlimpiapipas.impultienda.ar/checkout/arteenpipa",   // checkout de ImpulTienda (Marcos, 21/10/2026)
+  pixel:    "936755785560327",   // pixel de Meta de esta oferta (Marcos, 20/10/2026)
+
+  marca:    "Taller Limpiapipas",
+  tagline:  "De hobby a ingreso extra · 100 % online",
+  dominio:  "tallerlimpiapipas.com",   // PLACEHOLDER
+  mail:     "",
+
+  /* --- la beca: así se presenta el precio. Valor del taller = stack completo (se suma solo). */
+  precio: 17990,          // ARS, pago único
+  moneda: "$",
+  garantiaDias: 7,        // front: 7 días (lo que se puede sostener). El original no muestra ninguna.
+  cupos: 8,               // cupos con beca "encontrados" en la pantalla 2. El original dice 8. Bajo y sostenible.
+  delayOferta: 215,       // segundos hasta que aparece la oferta debajo del VSL: el video (4:46) dice "tocá el botón" a los 3:36.
+
+  /* Núcleo del taller (5 módulos) */
+  modulos: [
+    { nombre:"Base: materiales, dónde comprarlos y las 4 torsiones",   desc:"Qué limpiapipas comprar (y cuáles no), el kit de $5.000 para arrancar y las 4 técnicas que resuelven el 90 % de las piezas: caracol, espiral, pétalo y nudo.", valor:24990 },
+    { nombre:"Flores y ramos eternos",                                  desc:"Rosa, tulipán, margarita, girasol y lavanda, paso a paso en video. Cómo armar un ramo de 7 y uno de 12 que se vende solo.", valor:34990 },
+    { nombre:"Animalitos y souvenirs",                                  desc:"Conejo, abeja, mariposa y vaquita de San Antonio. Los que piden para cumpleaños, baby showers y comuniones.", valor:29990 },
+    { nombre:"Llaveros, lapiceras y detalles chicos",                   desc:"Piezas de 10 minutos y margen alto. Ideales para vender de a docena a kioscos, jardines y librerías.", valor:19990 },
+    { nombre:"Temporada: Navidad, Día de la Madre, egresados",          desc:"Arbolitos, coronas, ramos de egreso y cajitas. El calendario que más vende en Argentina, con cada pieza en video.", valor:24990 }
+  ],
+  /* Bonos: uno por fricción (velocidad · hecho-por-vos · objeción interna · objeción externa · siguiente nivel) */
+  bonos: [
+    { nombre:"Tu primer ramo en 1 hora",                        desc:"Mini guía express para el día 1: tres flores y el armado. Para que no te quedes mirando el kit.", valor:9990 },
+    { nombre:"Calculadora de Precios y Ganancia",                desc:"Planilla lista: cargás el material y el tiempo, te dice a cuánto vender y cuánto te queda. Con los precios de Argentina cargados.", valor:14990 },
+    { nombre:"Guía de errores: las 12 piezas que salen mal",      desc:"Pétalos flojos, tallos que se doblan, colores que no combinan. Qué está pasando y cómo se arregla en 2 minutos.", valor:7990 },
+    { nombre:"Proveedores en Argentina + cómo vender por Instagram y Marketplace", desc:"Dónde comprar al por mayor (Once, mayoristas online, Mercado Libre) y las plantillas de mensajes para cerrar ventas por WhatsApp.", valor:14990 },
+    { nombre:"Los 12 modelos que más se venden en Argentina",    desc:"Con precio de venta sugerido y la fecha del año en que más salen. Para que hagas lo que se vende, no lo que se te ocurre.", valor:12990 }
+  ],
+  /* --- la cuenta del negocio: VERIFICAR EN MERCADO LIBRE / INSTAGRAM AR ANTES DE PAUTAR. Son órdenes de magnitud. */
+  cuenta: { materialRamo: 1200, ventaRamoMin: 8000, ventaRamoMax: 15000 },
+
+  /* --- prueba social: NÚMEROS PROPIOS, bajos. No los del original (800 alumnas / 100 mil seguidoras). */
+  alumnas: 300,
+
+  /* --- quién enseña. Nombre propio, no "Valeria Ríos" del original. */
+  voz: { nombre:"Valentina", apellido:"", rol:"Vale · Profe del Taller Limpiapipas", iniciales:"V", bio:"Me llamo Valentina, pero todas me dicen Vale. Hago flores de limpiapipas desde 2019: empecé vendiendo ramos a mis vecinas y hoy vivo de esto y de enseñarlo. Ya pasaron por el taller más de {alumnas} alumnas de todo el país." },
+
+  /* --- VSL: pegá acá el embed completo (el <div> + <script> del player, o un <iframe>). Vacío = se muestra el hueco. */
+  videos: { vsl:'<iframe id="panda-55b1ae91-c95e-4f37-bd2a-f0f3a5c4db07" src="https://player-vz-f4e29b88-8cf.tv.pandavideo.com/embed/?v=55b1ae91-c95e-4f37-bd2a-f0f3a5c4db07" style="border:none;position:absolute;top:0;left:0;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen="true" width="100%" height="100%" fetchpriority="high"></iframe>' },   // VSL en Panda Video (Marcos, 21/10/2026). El .marco ya le da el 9:16.
+
+  /* --- testimonios: PLACEHOLDERS sin cifras de ingresos. Reemplazar por reales antes de pautar. */
+  testimonios: [
+    { nombre:"Romina",  lugar:"Lanús",      texto:"Nunca había hecho nada con las manos. Con el módulo de flores armé mi primer ramo el mismo fin de semana y mi cuñada me lo compró para el Día de la Madre." },
+    { nombre:"Graciela",lugar:"Córdoba",    texto:"Soy jubilada y buscaba algo para hacer en casa. Lo que más me sirvió fue la planilla de precios: antes regalaba las piezas, ahora sé cuánto cobrar." },
+    { nombre:"Vane",    lugar:"Mar del Plata", texto:"Empecé con llaveros para el kiosco de mi barrio. Hoy tengo pedidos para dos cumpleaños y un bautismo. Las plantillas de WhatsApp me ahorraron la vergüenza de no saber qué responder." }
+  ],
+
+  /* --- imágenes: cada hueco muestra un recuadro punteado con la descripción. Poné los archivos en img/
+         (nombre = clave) y corré ./integrar-img.sh. "ref" es la del original, solo como referencia visual. */
+  imagenes: {
+    fondo:  { src:"img/fondo.webp", desc:"FONDO 9:16 de la pantalla 1: papel crema, ramita de paniculata arriba a la izquierda, una flor rosa de limpiapipas a la derecha, franja de lino con puntilla y dos florcitas abajo. Como el original.", ref:"https://media.inlead.cloud/uploads/48812/2026-09-15/rW01k-chatgpt-image-15-de-set-de-2026-16-31-59.png" },
+    hero:   { src:"img/hero.webp", desc:"HERO (4:3): ramo de flores de limpiapipas (rosa, blanco, lavanda) sobre mesa clara de madera, con un par de limpiapipas sueltos y una tijera. Luz de ventana. Sin personas.", ref:"https://media.inlead.cloud/uploads/48812/2026-09-15/rW01k-chatgpt-image-15-de-set-de-2026-16-31-59.png" },
+    edad:   { src:"img/edad.webp", desc:"Opcional, va debajo de las opciones de edad: cuatro mujeres de distintas edades con delantal, de perfil, fondo claro (como el original).", ref:"https://media.inlead.cloud/uploads/48812/2026-05-13/Xkv15-chatgpt-image-2-de-mai-de-2026-14-28-15-1-11zon.jpg" },
+    hijos:  { src:"img/hijos.webp", desc:"Opcional, debajo de '¿Tenés hijos?': mesa con limpiapipas de colores y manos de adultos y chicos armando flores. Sin rostros reconocibles.", ref:"https://media.inlead.cloud/uploads/48812/2026-09-12/yOv6x-chatgpt-image-12-de-set-de-2026-00-12-17.png" },
+    profe:  { src:"img/profe.webp", desc:"Vale (la profe) con un ramo de tulipanes de limpiapipas en su taller. Archivo: Downloads/Taller de Vale.png (20/10/2026).", ref:"https://media.inlead.cloud/uploads/48812/2026-09-12/Vg5fx-chatgpt-image-12-de-set-de-2026-00-47-28.png" },
+    piezas: { src:"img/piezas.webp", desc:"Collage 2x2 de piezas terminadas: ramo, conejo, llavero, arbolito de Navidad. Fondo claro, misma luz.", ref:"" }
+  }
+};
+
+/* --- derivados: nada de esto se tipea a mano ------------------------------ */
+const D = {
+  get valorModulos(){ return CONFIG.modulos.reduce((a,b)=>a+b.valor,0); },
+  get valorBonos(){ return CONFIG.bonos.reduce((a,b)=>a+b.valor,0); },
+  get valorTotal(){ return this.valorModulos+this.valorBonos; },
+  get cubre(){ return this.valorTotal-CONFIG.precio; },
+  get pctBeca(){ return Math.round(this.cubre/this.valorTotal*100); },
+  get ramosParaPagar(){ return Math.ceil(CONFIG.precio/(CONFIG.cuenta.ventaRamoMin-CONFIG.cuenta.materialRamo)); }
+};
+const money = n => CONFIG.moneda + Math.round(n).toLocaleString("es-AR");
+const alCheckout = () => {
+  track("InitiateCheckout",{value:CONFIG.precio,currency:"ARS"});
+  if(!CONFIG.checkout){ alert("Falta cargar CONFIG.checkout (el link del checkout de ImpulTienda)."); return; }
+  window.location.href = CONFIG.checkout;
+};
+
+/* ============================================================================
+   PIXEL (solo si hay ID)
+   ============================================================================ */
+function track(ev,data){ if(window.fbq){ try{ fbq(["PageView","ViewContent","Lead","InitiateCheckout","CompleteRegistration"].includes(ev)?"track":"trackCustom",ev,data||{}); }catch(e){} } }
+if(CONFIG.pixel){
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init',CONFIG.pixel); fbq('track','PageView');
+}
+
+/* ============================================================================
+   ESTADO + utilidades
+   ============================================================================ */
+const S = { i:0, r:{} };
+const $  = s => document.querySelector(s);
+const el = (t,c,h) => { const e=document.createElement(t); if(c)e.className=c; if(h!=null)e.innerHTML=h; return e; };
+const TICK = '<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>';
+const vibra = () => { try{ navigator.vibrate && navigator.vibrate(12); }catch(e){} };
+
+/* Flor de chenille en SVG (propia): pétalos "peludos" con trazo punteado. */
+function flor(cx,cy,r,col,colOsc,centro){
+  let s='';
+  for(let k=0;k<6;k++){ const a=k*60*Math.PI/180; const px=cx+Math.cos(a)*r*.95, py=cy+Math.sin(a)*r*.95;
+    s+='<ellipse cx="'+px.toFixed(1)+'" cy="'+py.toFixed(1)+'" rx="'+(r*.62).toFixed(1)+'" ry="'+(r*.5).toFixed(1)+'" transform="rotate('+(k*60)+' '+px.toFixed(1)+' '+py.toFixed(1)+')" fill="'+col+'" stroke="'+colOsc+'" stroke-width="'+(r*.14).toFixed(1)+'" stroke-dasharray="1 2.2" stroke-linecap="round"/>'; }
+  s+='<circle cx="'+cx+'" cy="'+cy+'" r="'+(r*.5).toFixed(1)+'" fill="'+(centro||'#F6D35B')+'" stroke="#D9A82E" stroke-width="'+(r*.14).toFixed(1)+'" stroke-dasharray="1 2.2"/>';
+  return s;
+}
+function tallo(x1,y1,x2,y2,col){ return '<path d="M'+x1+' '+y1+' Q '+((x1+x2)/2+10)+' '+((y1+y2)/2)+' '+x2+' '+y2+'" fill="none" stroke="'+col+'" stroke-width="7" stroke-linecap="round" stroke-dasharray="1 2.4"/>'; }
+function hoja(x,y,rot,col){ return '<ellipse cx="'+x+'" cy="'+y+'" rx="16" ry="7" transform="rotate('+rot+' '+x+' '+y+')" fill="'+col+'" stroke="#5E8560" stroke-width="3" stroke-dasharray="1 2.2" stroke-linecap="round"/>'; }
+const DECO_TL = '<svg viewBox="0 0 120 120">'+tallo(30,118,60,60,'#7FA37C')+hoja(38,95,-30,'#9DBB98')+flor(62,52,22,'#F2A2B4','#D97A90')+flor(100,26,14,'#FFFFFF','#E6DAD0','#F6D35B')+'</svg>';
+const DECO_BR = '<svg viewBox="0 0 150 150">'+tallo(80,150,70,80,'#7FA37C')+tallo(120,150,110,95,'#7FA37C')+hoja(60,120,30,'#9DBB98')+hoja(125,128,-40,'#9DBB98')+flor(70,70,26,'#F2A2B4','#D97A90')+flor(112,86,18,'#C9B6E4','#9C86C2')+flor(40,110,13,'#FFFFFF','#E6DAD0')+'</svg>';
+const RAMO = '<svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg">'+
+  tallo(130,215,95,110,'#7FA37C')+tallo(135,215,140,95,'#7FA37C')+tallo(140,215,185,115,'#7FA37C')+tallo(128,215,60,135,'#7FA37C')+tallo(142,215,215,145,'#7FA37C')+
+  hoja(90,165,-35,'#9DBB98')+hoja(175,170,35,'#9DBB98')+hoja(120,150,-70,'#9DBB98')+
+  flor(60,120,24,'#FFFFFF','#E6DAD0')+flor(215,135,22,'#C9B6E4','#9C86C2')+flor(95,95,30,'#F2A2B4','#D97A90')+flor(185,100,30,'#F7C8D0','#D97A90')+flor(140,80,34,'#FF8C69','#D94A00','#FFE38A')+
+  '<path d="M118 212 l12 -8 l12 8 l-6 -14 z" fill="#F6D35B" stroke="#D9A82E" stroke-width="2"/></svg>';
+const LOGO_ICON = '<svg viewBox="0 0 40 40">'+flor(20,20,9,'#F2A2B4','#D97A90')+'</svg>';
+const MEDALLA = '<svg viewBox="0 0 100 100"><circle cx="50" cy="42" r="30" fill="#16A34A"/><circle cx="50" cy="42" r="23" fill="#22C55E" stroke="#fff" stroke-width="2"/><path d="M38 42l8 8 16-16" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M36 66l-8 26 22-12 22 12-8-26" fill="#15803D"/></svg>';
+
+function huecoImg(clave, extra){
+  const im = CONFIG.imagenes[clave]; if(!im) return "";
+  if(im.src) return '<img class="full" src="'+im.src+'" alt="">';
+  return '<div class="hueco '+(extra||"")+'"><b>Falta imagen: '+clave+'</b>'+im.desc+(im.ref?'<br><a href="'+im.ref+'" target="_blank" rel="noopener">ver la del original ↗</a>':'')+'</div>';
+}
+/* opcional: si no hay imagen, no muestra nada (para no ensuciar las preguntas) */
+function imgOpcional(clave){ const im=CONFIG.imagenes[clave]; return (im&&im.src)?'<img class="full" src="'+im.src+'" alt="">':''; }
+
+/* ============================================================================
+   NAVEGACIÓN — #pN salta a la pantalla N (hook de auditoría)
+   ============================================================================ */
+let TIMERS=[];
+function limpiar(){ TIMERS.forEach(clearTimeout); TIMERS=[]; }
+function luego(fn,ms){ const t=setTimeout(fn,ms); TIMERS.push(t); return t; }
+function ir(n, anim){
+  n = Math.max(0, Math.min(P.length-1, n));
+  const cur=$("#main .pant");
+  const go=()=>{ S.i=n; if(location.hash!=="#p"+(S.i+1)) history.replaceState(null,"","#p"+(S.i+1)); render(); window.scrollTo({top:0,behavior:"instant"}); track("QuizStep",{step:S.i+1,id:P[S.i].id}); };
+  limpiar();
+  if(cur && anim!==false){ cur.classList.add("sale"); setTimeout(go,170); } else go();
+}
+const siguiente = () => ir(S.i+1);
+const atras = () => ir(S.i-1);
+function irA(id){ ir(P.findIndex(p=>p.id===id)); }
+
+function render(){
+  const p = P[S.i];
+  const preguntas = P.filter(x=>x.cuenta).length;
+  const idx = P.slice(0,S.i+1).filter(x=>x.cuenta).length;
+  $("#top").classList.toggle("oculta", p.barra===false);
+  document.body.classList.toggle("fondo-inicio", p.tipo==="inicio");
+  $("#marcatop").innerHTML = LOGO_ICON+'<span>Taller <b>Limpiapipas</b></span>';
+  $("#paso").textContent = p.cuenta ? (idx+"/"+preguntas) : "";
+  $("#barra").style.width = (Math.max(4, S.i/(P.length-1)*100))+"%";
+  $("#volver").style.visibility = (S.i===0 || p.sinVolver) ? "hidden" : "visible";
+  const m=$("#main"); m.innerHTML="";
+  const w=el("div","pant"); m.appendChild(w);
+  (VISTAS[p.tipo]||VISTAS.single)(p,w);
+}
+
+/* ============================================================================
+   COMPONENTES
+   ============================================================================ */
+function boton(w, rotulo, fn, o={}){
+  const c = el("div", o.sinMargen ? "" : "cta-wrap");
+  const b = el("button","btn"+(o.pulsa!==false?" pulsa":"")+(o.grande?" grande":"")+(o.ok?" ok":""), rotulo+(o.flecha!==false?' <span class="fl">→</span>':''));
+  b.onclick = ()=>{ vibra(); fn(); };
+  c.appendChild(b);
+  if(o.nota) c.appendChild(el("p","nota-cta",o.nota));
+  w.appendChild(c); return b;
+}
+function titulo(w,p){
+  if(p.etiqueta) w.appendChild(el("div","sec",'<span class="pill acc">'+p.etiqueta+'</span>'));
+  w.appendChild(el("h2","q sec d1",p.titulo));
+  if(p.sub) w.appendChild(el("p","sub sec d2",p.sub));
+}
+/* opción única: se marca, vibra, y avanza sola a los 420 ms */
+function opciones(w,p){
+  const ops=el("div","ops"+(p.grid?" grid2":""));
+  p.ops.forEach((o,i)=>{
+    const [tt,ic,st]=o;
+    const b=el("button","op",(ic?'<span class="ic">'+ic+'</span>':'')+'<span class="tx"><span class="tt">'+tt+'</span>'+(st?'<span class="st">'+st+'</span>':'')+'</span><span class="fl">›</span>');
+    b.style.setProperty("--i",i);
+    b.onclick=()=>{ if(ops.dataset.lock)return; ops.dataset.lock=1; vibra(); b.classList.add("on"); S.r[p.campo||p.id]=tt; luego(()=>p.despues?irA(p.despues):siguiente(),420); };
+    ops.appendChild(b);
+  });
+  w.appendChild(ops);
+}
+function multi(w,p){
+  const ops=el("div","ops"); const sel=new Set();
+  let btn;
+  p.ops.forEach((o,i)=>{
+    const [tt,ic,excl]=o;
+    const b=el("button","op multi",(ic?'<span class="ic">'+ic+'</span>':'')+'<span class="tx"><span class="tt">'+tt+'</span></span><span class="bx">'+TICK+'</span>');
+    b.style.setProperty("--i",i); b.dataset.excl=excl?1:"";
+    b.onclick=()=>{ vibra();
+      if(excl){ sel.clear(); ops.querySelectorAll(".op").forEach(x=>x.classList.remove("on")); sel.add(tt); b.classList.add("on"); }
+      else { ops.querySelectorAll(".op[data-excl='1']").forEach(x=>{x.classList.remove("on"); sel.delete(x.querySelector(".tt").textContent);}); b.classList.toggle("on"); b.classList.contains("on")?sel.add(tt):sel.delete(tt); }
+      btn.disabled=sel.size===0; };
+    ops.appendChild(b);
+  });
+  w.appendChild(ops);
+  btn=boton(w,p.cta||"Continuar",()=>{ S.r[p.campo||p.id]=[...sel]; siguiente(); });
+  btn.disabled=true;
+}
+function botones(w,p){
+  const c=el("div","botones");
+  p.botones.forEach((b,i)=>{ const [tt,fn]=b; const x=el("button","btn resp",tt); x.style.setProperty("--i",i);
+    x.onclick=()=>{ vibra(); S.r[p.campo||p.id]=tt; x.style.borderColor="var(--acc)"; x.style.background="var(--acc-cl)"; luego(()=>fn?fn():siguiente(),300); }; c.appendChild(x); });
+  w.appendChild(c);
+}
+function testimonio(w,t){
+  w.appendChild(el("div","testi",'<div class="foto">'+t.nombre[0]+'</div><div><div class="estrellas">★★★★★</div><p class="q">“'+t.texto+'”</p><div class="n">'+t.nombre+' <span>· '+t.lugar+'</span></div></div>'));
+}
+function metrica(w,lab,pct,color,txt){
+  const m=el("div","metrica "+color,'<div class="lab"><div>'+lab+'</div><span>'+(txt||pct+"%")+'</span></div><div class="pista"><i></i></div>');
+  w.appendChild(m); luego(()=>{ m.querySelector("i").style.width=pct+"%"; },150);
+}
+function anillo(w, cls){
+  const a=el("div",cls||"anillo",'<svg viewBox="0 0 160 160"><circle class="fondo" cx="80" cy="80" r="70"/><circle class="prog" cx="80" cy="80" r="70"/></svg><div class="num"><span>0</span><small>%</small></div>');
+  w.appendChild(a); return a;
+}
+/* confeti liviano, sin librerías */
+function confeti(){
+  const c=$("#confeti"), x=c.getContext("2d"); c.width=innerWidth; c.height=innerHeight;
+  const cols=["#FF5900","#F2A2B4","#16A34A","#F6D35B","#C9B6E4","#fff"]; const ps=[];
+  for(let i=0;i<140;i++) ps.push({x:Math.random()*c.width,y:-20-Math.random()*c.height*.5,w:6+Math.random()*6,h:8+Math.random()*8,c:cols[i%cols.length],v:2+Math.random()*3,a:Math.random()*6.28,s:(Math.random()-.5)*.2});
+  let t0=performance.now();
+  (function f(now){ const dt=now-t0; x.clearRect(0,0,c.width,c.height);
+    ps.forEach(p=>{ p.y+=p.v; p.x+=Math.sin(p.a)*1.2; p.a+=p.s; x.save(); x.translate(p.x,p.y); x.rotate(p.a); x.fillStyle=p.c; x.fillRect(-p.w/2,-p.h/2,p.w,p.h); x.restore(); });
+    if(dt<3200) requestAnimationFrame(f); else x.clearRect(0,0,c.width,c.height); })(t0);
+}
+
+/* ============================================================================
+   PANTALLAS — 17, las mismas del original (10 preguntas en el mismo orden).
+   ============================================================================ */
+const P = [
+/* 1 */ { id:"inicio", tipo:"inicio", barra:false },
+/* 2 */ { id:"buscando", tipo:"buscando", barra:false, sinVolver:true },
+/* 3 */ { id:"edad", tipo:"single", cuenta:true, titulo:"¿Cuántos años tenés?", img:"edad",
+          ops:[["18 a 34 años","🌱"],["35 a 54 años","🌸"],["55 a 64 años","🌺"],["Más de 65 años","🌻"]] },
+/* 4 */ { id:"hijos", tipo:"single", cuenta:true, titulo:"¿Tenés hijos?", img:"hijos",
+          ops:[["Sí","👍"],["No","👎"]] },
+/* 5 */ { id:"ocupacion", tipo:"single", cuenta:true, titulo:"¿Cuál es tu ocupación hoy?",
+          ops:[["Solo trabajo","💼"],["Solo estudio","📚"],["Soy jubilada","🙏"],["Soy ama de casa","🏠"],["Trabajo y estudio","⚡"]] },
+/* 6 */ { id:"situacion", tipo:"single", cuenta:true, titulo:"¿En cuál de estas <em class='a'>situaciones</em> te encontrás hoy?",
+          ops:[["Trabajando mucho y ganando poco","😪"],["Sin una profesión definida","😫"],["Buscando algo que me dé libertad e ingresos extra","🤑"],["Insatisfecha y queriendo un cambio en mi vida","😞"]] },
+/* 7 */ { id:"experiencia", tipo:"single", cuenta:true, titulo:"¿Cuál es tu nivel de <em class='a'>experiencia</em> con piezas de limpiapipas?",
+          ops:[["Nunca hice ninguna pieza con limpiapipas en mi vida","🙏"],["Ya intenté hacer algunas, pero no quedaron bien","🌸"],["Ya hago piezas simples, pero quiero profesionalizarme","💫"],["Ya tengo experiencia y quiero aprender técnicas avanzadas","🌹"]] },
+/* 8 */ { id:"primera", tipo:"single", cuenta:true, titulo:"Si ganaras <em class='a'>$500.000 extra por mes</em> con tu negocio de piezas de limpiapipas… ¿qué sería lo primero que harías con esa plata?",
+          ops:[["Dejar mi trabajo actual","🏃‍♀️"],["Abrir mi propio taller","🏠"],["Ayudar a mi familia","❤️"],["Cumplir un sueño viejo","🌟"]] },
+/* 9 */{ id:"etapa", tipo:"single", cuenta:true, titulo:"¿En qué etapa de <em class='a'>tu vida</em> sentís que estás ahora?",
+          ops:[["Buscando independencia económica","🧭"],["Quiero tener ingresos propios","👜"],["Quiero volver a empezar","🌅"],["Quiero más libertad con la plata","🕊️"]] },
+/* 10 */{ id:"contenido", tipo:"single", cuenta:true, titulo:"¿Ya seguís contenido sobre piezas con limpiapipas?", sub:"YouTube, Instagram, TikTok, Pinterest…",
+          ops:[["Sí, sigo un montón","📱"],["Lo veo a veces","👀"],["No sigo nada","🙅‍♀️"]] },
+/* 11 */{ id:"curso", tipo:"single", cuenta:true, titulo:"¿Ya hiciste algún <em class='a'>curso online</em> antes?",
+          ops:[["Sí, lo hice y lo terminé","💪"],["Empecé uno, pero no lo terminé","☹️"],["Nunca hice","❌"]] },
+/* 12 */{ id:"apoyo", tipo:"single", cuenta:true, titulo:"Durante el taller, ¿tendrías a alguien que te pueda <em class='a'>apoyar</em>, ya sea en lo emocional o en lo económico?",
+          ops:[["Sí, seguro","😍"],["Tal vez","🤔"],["No","😟"]] },
+/* 13 */{ id:"analizando", tipo:"analizando", barra:false, sinVolver:true },
+/* 14 */{ id:"resultado", tipo:"resultado", sinVolver:true },
+/* 15 */{ id:"profe", tipo:"profe", sinVolver:true },
+/* 16 */{ id:"aviso", tipo:"aviso", sinVolver:true },
+/* 17 */{ id:"vsl", tipo:"vsl", barra:false, sinVolver:true }
+];
+
+/* resultado como el original: 94 %, mínimo 87 */
+function calcular(){ return {compat:94}; }
+
+/* ============================================================================
+   VISTAS
+   ============================================================================ */
+const VISTAS = {};
+
+/* 1 · INICIO (calcada del original: fondo con flores de chenille, texto en mayúsculas, botón redondo verde "INICIAR") */
+VISTAS.inicio = (p,w)=>{
+  w.className+=" inicio";
+  const f=CONFIG.imagenes.fondo;
+  w.innerHTML =
+    '<div class="fondo"'+(f.src?' style="background-image:url('+f.src+')"':'')+'>'+(f.src?'':'<div class="deco tl">'+DECO_TL+'</div><div class="deco br">'+DECO_BR+'</div>')+'</div>'+
+    '<div><span class="cartel"><i></i>Selección abierta · '+CONFIG.cupos+' cupos este mes</span></div>'+
+    '<h2 class="lema">Hacé clic en el botón para iniciar la selección del <b>acceso gratuito</b></h2>'+
+    '<svg class="flecha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M5 13l7 7 7-7"/></svg>'+
+    '<button class="iniciar-3d" id="iniciar">INICIAR <span class="fl">→</span></button>'+
+    '<div class="micro"><span>⏱️ <b>2 minutos</b></span><span>·</span><span>✅ Sin registro</span><span>·</span><span>🎓 Beca cubre el <b>'+D.pctBeca+' %</b></span></div>'+
+    '<div><div class="gente"><div class="avs"><i style="background:#D97A90">R</i><i style="background:#5E8560">G</i><i style="background:#FF5900">V</i><i style="background:#9C86C2">M</i></div><span><b>+'+CONFIG.alumnas+' mujeres</b> ya pasaron la selección</span></div></div>'+
+    (f.src?'':huecoImg("fondo"));
+  w.querySelector("#iniciar").onclick=()=>{ vibra(); siguiente(); };
+  track("ViewContent",{content_name:"quiz_inicio"});
+};
+
+/* 2 · BUSCANDO CUPOS (loading de 5 s con tres tarjetas, como el original, pero animado de verdad) */
+VISTAS.buscando = (p,w)=>{
+  w.className+=" cargando relativo";
+  w.innerHTML='<div class="deco br">'+DECO_BR+'</div><h2 class="h2">Preparando tu selección…</h2><p class="p chico">Estamos buscando cupos con beca para aprender limpiapipas en Argentina.</p>';
+  const a=anillo(w); const num=a.querySelector(".num span"), prog=a.querySelector(".prog");
+  w.insertAdjacentHTML("beforeend",'<div class="tarjetas"><div class="tarj amarilla"><div class="ico">⏳</div><b>Validando perfil</b></div><div class="tarj verde"><div class="ico">🔓</div><b>Cupos encontrados</b></div><div class="tarj rosa"><div class="ico">✅</div><b>Acceso reservado</b></div></div><div id="fin"></div>');
+  const T=5000, t0=performance.now();
+  (function f(now){ const k=Math.max(0,Math.min(1,(now-t0)/T)); num.textContent=Math.round(k*100); prog.style.strokeDashoffset=440-440*k; if(k<1) requestAnimationFrame(f); else prog.classList.add("ok"); })(performance.now());
+  const tj=w.querySelectorAll(".tarj");
+  luego(()=>tj[0].classList.add("vis"),900); luego(()=>tj[1].classList.add("vis"),2600); luego(()=>tj[2].classList.add("vis"),4300);
+  luego(()=>{
+    const f=w.querySelector("#fin");
+    f.innerHTML='<div class="cupos">Encontramos <b>'+CONFIG.cupos+' cupos</b> con beca para Argentina este mes.</div>'+
+      '<div class="aviso azul" style="text-align:left"><span class="em">🎓</span><div><p>Para recibir la <strong><mark class="v">beca del taller</mark></strong> solo necesitás pasar por una <strong>breve selección</strong> respondiendo <strong>algunas preguntas rápidas</strong>.</p></div></div>';
+    boton(f,"CONTINUAR",siguiente,{});
+    confeti();
+  },5200);
+};
+
+VISTAS.single = (p,w)=>{ titulo(w,p); opciones(w,p); if(p.img) w.insertAdjacentHTML("beforeend",imgOpcional(p.img)); };
+VISTAS.multi  = (p,w)=>{ titulo(w,p); multi(w,p); };
+VISTAS.botones= (p,w)=>{ titulo(w,p); botones(w,p); };
+
+/* 16 · ANALIZANDO (pasos reales, con check) */
+VISTAS.analizando = (p,w)=>{
+  w.className+=" cargando";
+  w.innerHTML='<h2 class="h2">Cargando tus respuestas… ⏳</h2><p class="p chico">¡Estamos armando un entrenamiento a tu medida! Esperá un momento.</p>';
+  const a=anillo(w); const num=a.querySelector(".num span"), prog=a.querySelector(".prog");
+  const pasos=["Leyendo tus respuestas","Calculando tu compatibilidad con la beca","Eligiendo los módulos para tu nivel","Buscando cupo disponible en Argentina"];
+  w.insertAdjacentHTML("beforeend",'<div class="pasos">'+pasos.map(s=>'<div class="ln"><span class="dot"></span>'+s+'</div>').join("")+'</div>');
+  const ln=w.querySelectorAll(".ln"); const T=4600, t0=performance.now();
+  (function f(now){ const k=Math.max(0,Math.min(1,(now-t0)/T)); num.textContent=Math.round(k*100); prog.style.strokeDashoffset=440-440*k; if(k<1) requestAnimationFrame(f); else prog.classList.add("ok"); })(performance.now());
+  pasos.forEach((_,i)=>{ luego(()=>{ ln[i].classList.add("act"); if(i>0){ln[i-1].classList.remove("act");ln[i-1].classList.add("ok");} },200+i*1050); });
+  luego(()=>{ ln[ln.length-1].classList.remove("act"); ln[ln.length-1].classList.add("ok"); },4500);
+  luego(siguiente,5000);
+};
+
+/* 17 · RESULTADO (94 % como el original, con anillo animado y confeti) */
+VISTAS.resultado = (p,w)=>{
+  const n=calcular();
+  w.className+=" resultado c";
+  w.innerHTML='<div class="wow">¡Wow! 😱</div>'+
+    '<div class="compat"><svg viewBox="0 0 180 180"><defs><linearGradient id="gradOk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#86EFAC"/><stop offset="1" stop-color="#16A34A"/></linearGradient></defs><circle class="fondo" cx="90" cy="90" r="80"/><circle class="prog" cx="90" cy="90" r="80"/></svg><div class="num"><span>0</span><small>compatibilidad</small></div></div>'+
+    '<h2 class="h2 sec d2">¡Qué orgullo decir esto: alcanzaste un <mark class="v">'+n.compat+' %</mark> de compatibilidad con el perfil ideal para recibir la <em class="a">beca del Taller Limpiapipas</em>! 🎉</h2>'+
+    '<p class="p sec d3">¡Sí, '+n.compat+' %! ¡Fuiste increíble! 🥳 El mínimo necesario <span class="minimo">era 87 %</span>, y fuiste mucho más allá.</p>'+
+    '<p class="p sec d4" style="margin-top:12px"><b>¡Tenés todo lo que buscamos!</b> Estamos muy felices de verte llegar hasta acá. 🎉</p>';
+  boton(w,"¡Sí, quiero reclamar mi beca!",siguiente,{grande:true,ok:true});
+  const num=w.querySelector(".compat .num span"), prog=w.querySelector(".compat .prog");
+  luego(()=>{ prog.style.strokeDashoffset=502-502*n.compat/100; const t0=performance.now(); (function f(){ const k=Math.max(0,Math.min(1,(performance.now()-t0)/1700)); num.textContent=Math.round(n.compat*(1-Math.pow(1-k,3))); if(k<1) requestAnimationFrame(f); else num.textContent=n.compat; })(); },250);
+  luego(confeti,900);
+  track("Lead",{content_name:"beca_aprobada"});
+};
+
+/* 18 · LA PROFE */
+VISTAS.profe = (p,w)=>{
+  const v=CONFIG.voz; const im=CONFIG.imagenes.profe;
+  w.innerHTML='<div class="c"><span class="pill ok">✅ Beca garantizada</span></div>'+
+    '<h2 class="h2 c sec d1" style="margin-top:14px">¡Tu <em class="v">beca del taller</em> está garantizada!</h2>'+
+    '<p class="p c sec d2">Y ahora que sos oficialmente alumna, dejame presentarme:</p>'+
+    '<div class="profe sec d3"><div class="foto"'+(im.src?' style="background-image:url('+im.src+')"':'')+'>'+(im.src?'':v.iniciales)+'</div><div><b>'+v.nombre+(v.apellido?' '+v.apellido:'')+'</b><small>'+v.rol+'</small><div class="estrellas" style="margin-top:4px">★★★★★</div></div></div>'+
+    huecoImg("profe")+
+    '<div class="aviso ambar sec d4"><span class="em">🧡</span><div><p>'+v.bio.replace("{alumnas}","<strong>"+CONFIG.alumnas+"</strong>")+'</p></div></div>'+
+    '<p class="p c sec d5" style="margin-top:18px"><b>Ahora vamos a activar tu beca.</b> ⬇️</p>';
+  boton(w,"Ver cómo activar mi beca",siguiente,{});
+};
+
+/* 19 · AVISO ANTES DEL VIDEO */
+VISTAS.aviso = (p,w)=>{
+  w.innerHTML='<h2 class="h2 sec">Ahora tocá el botón de abajo y <em class="a">mirá el video</em> que explica todo lo que vas a aprender en el Taller Limpiapipas.</h2>'+
+    '<div class="aviso verde sec d1"><span class="em">🧡</span><div><p>Y también muestra, <strong>paso a paso</strong>, <strong>cómo activar la <mark class="v">beca del taller</mark></strong> que acabás de ganarte.</p></div></div>'+
+    '<h3 class="h3 sec d2" style="margin-top:22px">🚨 ¡Pero atención!</h3>'+
+    '<div class="aviso ambar sec d3"><span class="em">⚠️</span><div><b>Aviso</b><p>La beca queda reservada <strong>solo mientras estés en la página</strong>. Para no perderla, mirá el video de la siguiente pantalla <strong>hasta el final</strong>: ahí está el botón para activarla.</p></div></div>';
+  boton(w,"¡Activar mi beca ahora!",siguiente,{grande:true,ok:true});
+};
+
+/* 20 · VSL + OFERTA (sin upsells; la oferta aparece después de CONFIG.delayOferta segundos) */
+VISTAS.vsl = (p,w)=>{
+  const vs=CONFIG.videos.vsl;
+  w.innerHTML='<div class="c"><span class="pill ok">🎓 Beca activada · mirá hasta el final</span></div>'+
+    '<div class="vsl sec d1"><div class="marco">'+(vs?vs:'<div class="falta"><div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><b>Acá va el VSL</b><p>Video vertical 9:16. Pegá el embed completo en <code>CONFIG.videos.vsl</code> y poné <code>delayOferta</code> en los segundos a los que querés que aparezca la oferta.</p></div>')+'</div></div>';
+  const of=el("div","oferta"+(CONFIG.delayOferta>0?" oculta":""));
+  w.appendChild(of);
+  const q=CONFIG.cuenta;
+  of.innerHTML=
+    '<h2 class="h2 c">Taller Limpiapipas</h2><p class="p c chico">'+CONFIG.tagline+'</p>'+
+    '<div class="sp"></div><h3 class="h3">Qué vas a recibir con la beca</h3>'+
+    '<div class="modulos">'+CONFIG.modulos.map((m,i)=>'<div class="mod"><span class="n">'+(i+1)+'</span><div><b>'+m.nombre+'</b><small>'+m.desc+'</small></div></div>').join("")+'</div>'+
+    '<p class="p chico" style="margin-top:12px">📱 Todo en video, desde el celular, con <b>acceso de por vida</b>. Más los patrones en PDF para imprimir y tener al lado mientras armás.</p>'+
+    '<div class="sp2"></div><h3 class="h3">🎁 + '+CONFIG.bonos.length+' bonos que hoy van incluidos</h3>'+
+    '<div class="modulos">'+CONFIG.bonos.map((b,i)=>'<div class="bono"><span class="n">BONO '+(i+1)+'</span><div style="flex:1"><b>'+b.nombre+'</b><small>'+b.desc+'</small></div><div class="val"><s>'+money(b.valor)+'</s><b>GRATIS</b></div></div>').join("")+'</div>'+
+    huecoImg("piezas")+
+    '<div class="beca"><div class="l1">Valor del taller completo</div><div class="l2"><s>'+money(D.valorTotal)+'</s></div><div class="cubre">🎓 Tu beca cubre '+money(D.cubre)+'</div><div class="l1" style="margin-top:14px">Hoy pagás</div><div class="precio">'+money(CONFIG.precio)+'<small>ARS</small></div><div class="l3">Pago único · acceso inmediato · sin mensualidades</div></div>';
+  boton(of,"QUIERO ACTIVAR MI BECA",alCheckout,{grande:true,nota:"🔒 Pago seguro · Acceso inmediato por mail"});
+  of.insertAdjacentHTML("beforeend",
+    '<div class="sellos"><div class="sello"><i>🔒</i><b>Pago seguro</b>Mercado Pago y tarjetas</div><div class="sello"><i>⚡</i><b>Acceso inmediato</b>Te llega al mail</div><div class="sello"><i>🛡️</i><b>'+CONFIG.garantiaDias+' días</b>de garantía</div></div>'+
+    '<div class="cuenta"><h3 class="h3">La cuenta, para que la hagas vos</h3>'+
+      '<div class="fila"><span>Material de un ramo de 7 flores</span><b>'+money(q.materialRamo)+'</b></div>'+
+      '<div class="fila"><span>A cuánto se vende un ramo así</span><b class="ok">'+money(q.ventaRamoMin)+' a '+money(q.ventaRamoMax)+'</b></div>'+
+      '<div class="fila"><span>Ramos que pagan el taller</span><b class="acc">'+D.ramosParaPagar+'</b></div>'+
+      '<p class="p chico" style="margin-top:10px">Después de eso, cada ramo es ganancia. Y un ramo lleva una tarde.</p></div>'+
+    '<div class="sp2"></div><h3 class="h3">Este taller es para vos si…</h3>'+
+    '<ul class="lista-ok"><li>Nunca hiciste nada con las manos y te da miedo que no te salga.</li><li>Ya hacés algo, pero regalás las piezas porque no sabés cuánto cobrar.</li><li>Querés un ingreso extra que puedas hacer desde la mesa de tu casa.</li><li>Te gustaría tener algo propio que no dependa de un jefe ni de un horario.</li></ul>'+
+    '<div class="garantia"><div class="medalla">'+MEDALLA+'</div><div><b>Probalo '+CONFIG.garantiaDias+' días sin compromiso</b><p>Si entrás, mirás el primer módulo y sentís que no es para vos, nos escribís y te devolvemos la plata. Sin vueltas.</p></div></div>');
+  boton(of,"QUIERO ACTIVAR MI BECA",alCheckout,{});
+  of.insertAdjacentHTML("beforeend",'<div class="sp"></div><h3 class="h3">Lo que cuentan las alumnas</h3>');
+  CONFIG.testimonios.forEach(t=>testimonio(of,t));
+  of.insertAdjacentHTML("beforeend",
+    '<div class="faq"><h3 class="h3">Preguntas frecuentes</h3>'+
+    '<details><summary>¿Necesito saber algo antes?</summary><p>No. El módulo 1 arranca desde cero: qué comprar, cómo agarrar el limpiapipas y las 4 torsiones básicas. Si sabés hacer un nudo, podés.</p></details>'+
+    '<details><summary>¿Cuánto cuesta el material?</summary><p>Un kit para arrancar (100 limpiapipas de colores, tijera y silicona) sale desde $5.000 en librerías y mayoristas. En el bono de proveedores está dónde conseguirlo más barato.</p></details>'+
+    '<details><summary>¿Cómo recibo el taller?</summary><p>Apenas se confirma el pago te llega un mail con el acceso. Se ve desde el celular, la tablet o la compu, cuando quieras y las veces que quieras.</p></details>'+
+    '<details><summary>¿La beca es un pago único?</summary><p>Sí. Pagás '+money(CONFIG.precio)+' una sola vez y el acceso es de por vida. No hay mensualidades ni cargos escondidos.</p></details>'+
+    '<details><summary>¿Y si no me gusta?</summary><p>Tenés '+CONFIG.garantiaDias+' días de garantía. Nos escribís y te devolvemos la plata.</p></details></div>');
+  boton(of,"QUIERO ACTIVAR MI BECA",alCheckout,{grande:true,nota:"Pago único de "+money(CONFIG.precio)+" · "+CONFIG.garantiaDias+" días de garantía"});
+  of.appendChild(el("p","legal",CONFIG.marca+' · '+CONFIG.dominio+(CONFIG.mail?' · '+CONFIG.mail:'')+'<br>Los ingresos mencionados son ejemplos y dependen del tiempo y la dedicación de cada persona. No se garantizan resultados económicos.<br>Este sitio no forma parte de Facebook ni de Meta Platforms, Inc.'));
+  if(CONFIG.delayOferta>0) luego(()=>{ of.classList.remove("oculta"); of.classList.add("sec"); },CONFIG.delayOferta*1000);
+};
+
+/* ============================================================================
+   ARRANQUE
+   ============================================================================ */
+$("#volver").onclick = ()=>{ vibra(); atras(); };
+(function(){
+  const m=location.hash.match(/^#p(\d+)$/);
+  if(m){ S.r={edad:"35 a 54 años",experiencia:"Ya intenté hacer algunas, pero no quedaron bien"}; ir(parseInt(m[1],10)-1,false); }
+  else ir(0,false);
+})();
+window.addEventListener("hashchange",()=>{ const m=location.hash.match(/^#p(\d+)$/); if(m && parseInt(m[1],10)-1!==S.i) ir(parseInt(m[1],10)-1); });
+</script>
+</body>
+</html>
